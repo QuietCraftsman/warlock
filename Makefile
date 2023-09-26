@@ -1,0 +1,23 @@
+CC = gcc
+CFLAGS = -std=c99 -Wall -Iinclude
+LDFLAGS = -lmingw32 -lSDL2main -lSDL2
+BINDIR = bin
+TARGET = $(BINDIR)/warlock
+
+SOURCES = $(wildcard src/*.c)
+OBJECTS = $(SOURCES:.c=.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $@ $(LDFLAGS)
+
+%.o: %.c
+	$(CC) -c $< -o $@ $(CFLAGS)
+
+clean:
+	rm -fv src/*.o
+	rm -fv $(TARGET)
+
+run: $(TARGET)
+	./$(TARGET)
