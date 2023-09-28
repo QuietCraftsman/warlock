@@ -1,7 +1,7 @@
 #ifndef _WARLOCK_STATIC_TEXTS_H
 #define _WARLOCK_STATIC_TEXTS_H
 
-typedef enum
+enum StringID
 {
     STRING_MAIN_TITLE,
     STRING_PLAY_AGAIN,
@@ -9,7 +9,7 @@ typedef enum
 
     // ... more strings
     STRING_COUNT
-} StringID;
+};
 
 const char *englishStrings[STRING_COUNT] = {
     [STRING_MAIN_TITLE] = "Warlock",
@@ -20,7 +20,7 @@ const char *englishStrings[STRING_COUNT] = {
 
 static const char **currentLanguageStrings = englishStrings;
 
-const char *getLocalizedString(StringID stringID)
+inline const char *getLocalizedString(enum StringID stringID)
 {
     // Assuming currentLanguageStrings is defined and points to the desired table
     return currentLanguageStrings[stringID];
