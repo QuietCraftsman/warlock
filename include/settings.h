@@ -4,10 +4,30 @@
 #include <stdio.h>
 #include <string.h>
 
+enum SettingType
+{
+    SETTINGTYPE_INT,
+    SETTINGTYPE_STRING
+};
+
+struct SettingData
+{
+    const char *key;
+    size_t offset;
+    size_t size;
+    enum SettingType type;
+};
+
 struct AudioSettings
 {
     int soundVolume;
     int musicVolume;
+};
+
+struct SettingData audioSettingsData[] = 
+{
+    {"soundVolume", offsetof(struct AudioSettings, soundVolume), sizeof(int), SETTINGTYPE_INT},
+    {"musicVolume", offsetof(struct AudioSettings, musicVolume), sizeof(int), SETTINGTYPE_INT}
 };
 
 struct DisplaySettings
