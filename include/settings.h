@@ -6,8 +6,8 @@
 
 enum SettingType
 {
-    SETTINGTYPE_INT,
-    SETTINGTYPE_STRING
+    SETTING_INT,
+    SETTING_STRING
 };
 
 struct SettingData
@@ -26,8 +26,8 @@ struct AudioSettings
 
 struct SettingData audioSettingsData[] = 
 {
-    {"soundVolume", offsetof(struct AudioSettings, soundVolume), sizeof(int), SETTINGTYPE_INT},
-    {"musicVolume", offsetof(struct AudioSettings, musicVolume), sizeof(int), SETTINGTYPE_INT}
+    {"soundVolume", offsetof(struct AudioSettings, soundVolume), sizeof(int), SETTING_INT},
+    {"musicVolume", offsetof(struct AudioSettings, musicVolume), sizeof(int), SETTING_INT}
 };
 
 struct DisplaySettings
@@ -54,6 +54,6 @@ struct GameSettings
     struct StorageSettings storageSettings;
 };
 
-int loadSettings(const char *filename, GameSettings *settings);
+int loadSettings(const char *filename, void *settings, struct SettingData *settingsData, size_t settingsDataSize);
 
 #endif // _WARLOCK_SETTINGS_H
