@@ -1,7 +1,9 @@
 #ifndef _WARLOCK_SETTINGS_H
 #define _WARLOCK_SETTINGS_H
 
+#include <stddef.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 enum SettingType

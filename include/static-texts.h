@@ -20,7 +20,7 @@ const char *englishStrings[STRING_COUNT] = {
 
 static const char **currentLanguageStrings = englishStrings;
 
-inline const char *getLocalizedString(enum StringID stringID)
+const char *getLocalizedString(enum StringID stringID)
 {
     // Assuming currentLanguageStrings is defined and points to the desired table
     return currentLanguageStrings[stringID];
